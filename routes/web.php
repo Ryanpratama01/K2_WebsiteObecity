@@ -1,30 +1,28 @@
 <?php
-
-use App\Http\Controllers\WebUserController;
+ 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Hash;
-
+ 
 Route::get('/', function () {
-    return view('landing_page.index');
+    return view('welcome');
 });
-
  
 Route::controller(AuthController::class)->group(function () {
     Route::get('register', 'register')->name('register');
     Route::post('register', 'registerSave')->name('register.save');
   
     Route::get('login', 'login')->name('login');
-    Route::post('login/action', 'loginAction')->name('login.action');
+    Route::post('login', 'loginAction')->name('login.action');
   
     Route::get('logout', 'logout')->middleware('auth')->name('logout');
 });
   
-Route::get('dashboard', function () {
-    return view('web_admin.dashboard');
-})->name('dashboard.index');
 Route::middleware('auth')->group(function () {
+    Route::get('dashboard', function () {
+        return view('web_admin.dashboard');
+    })->name('dashboard.index');
  
     Route::controller(UserController::class)->prefix('users')->group(function () {
         Route::get('', 'index')->name('users');
@@ -42,7 +40,3 @@ Route::middleware('auth')->group(function () {
 Route::get('/hash/{text}', function ($text) {
     return Hash::make($text);
 });
-Route::get('/beranda', [WebUserController::class, 'beranda']);
-Route::get('/kalkulator', [WebUserController::class, 'kalkulator']);
-Route::get('/rekomendasi', [WebUserController::class, 'rekomendasi']);
-Route::get('/history', [WebUserController::class, 'history']);
