@@ -1,0 +1,220 @@
+/* kalkulator_custom.css */
+
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.navbar {
+    background-color: #00796B !important;
+}
+
+.navbar .nav-link.active, .navbar .nav-link:hover {
+    color: #fff;
+    font-weight: bold;
+}
+
+/* General Card Styling - Matching beranda style */
+.dashboard-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 24px;
+    overflow: hidden;
+    border: none;
+}
+
+.card-header-custom {
+    background-color: #f8f9fa;
+    color: #333;
+    padding: 15px 20px;
+    font-weight: 600;
+    border-bottom: 1px solid #eee;
+    font-size: 1.1rem;
+}
+
+/* Page Header Styling */
+.page-header {
+    background-color: #f0f9f6;
+    padding: 40px 0;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(0, 121, 107, 0.1);
+}
+
+.welcome-text {
+    color: #00796B;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.header-subtitle {
+    color: #555;
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Form Controls */
+.form-control, .weight-select {
+    border-radius: 8px;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus, .weight-select:focus {
+    border-color: #00796B;
+    box-shadow: 0 0 0 0.2rem rgba(0, 121, 107, 0.25);
+}
+
+.form-label {
+    font-weight: 500;
+    color: #444;
+    margin-bottom: 8px;
+}
+
+/* Button Styling - Matching beranda style */
+.btn-gradient {
+    background: linear-gradient(45deg, #00796B, #009688);
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-weight: 500;
+    display: inline-block;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 121, 107, 0.2);
+    transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+    background: linear-gradient(45deg, #00695C, #00897B);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 121, 107, 0.3);
+    color: white;
+}
+
+/* Status badges styling */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.status-normal {
+    background-color: rgba(40, 167, 69, 0.15);
+    color: #28a745;
+}
+
+.status-warning {
+    background-color: rgba(255, 193, 7, 0.15);
+    color: #ffc107;
+}
+
+.status-danger {
+    background-color: rgba(220, 53, 69, 0.15);
+    color: #dc3545;
+}
+
+.status-info {
+    background-color: rgba(23, 162, 184, 0.15);
+    color: #17a2b8;
+}
+
+.status-primary {
+    background-color: rgba(0, 123, 255, 0.15);
+    color: #007bff;
+}
+
+/* Info alerts */
+.info-alert {
+    background-color: rgba(0, 121, 107, 0.1);
+    border-left: 4px solid #00796B;
+    padding: 12px 15px;
+    margin: 15px 0;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* Gender button styling */
+.gender-toggle {
+    padding: 10px 25px;
+    transition: all 0.3s ease;
+}
+
+/* Saat tombol dipilih (checked) */
+.btn-check:checked + .btn-outline-info, 
+.btn-check:checked + .btn-outline-danger {
+    background-color: #00796B;
+    color: #fff;
+    border-color: #00796B;
+    font-weight: bold;
+}
+
+/* Logo styling */
+.logo-img {
+    width: 40px;
+    height: 40px;
+}
+
+/* BMI Result Styling */
+.bmi-score-container {
+    padding: 20px;
+}
+
+.bmi-score {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #00796B, #009688);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0 auto;
+    box-shadow: 0 4px 15px rgba(0, 121, 107, 0.4);
+}
+
+.bmi-categories {
+    list-style: none;
+    padding: 0;
+}
+
+.bmi-category {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.bmi-category .badge {
+    min-width: 110px;
+    margin-right: 10px;
+    padding: 8px 12px;
+}
+
+.recommendation-list {
+    padding-left: 15px;
+    list-style: none;
+    margin-top: 15px;
+}
+
+.recommendation-list li {
+    margin-bottom: 12px;
+    padding-left: 10px;
+}
+
+/* Footer Watermark */
+.footer-watermark {
+    background-color: #f8f9fa;
+    padding: 15px 0;
+    color: #777;
+    font-size: 0.9rem;
+    border-top: 1px solid #eee;
+    margin-top: 40px;
+}
