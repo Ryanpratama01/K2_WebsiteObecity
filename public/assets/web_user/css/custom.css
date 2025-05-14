@@ -1,0 +1,502 @@
+/* custom.css - File CSS utama untuk Obecity Check */
+
+/* Base styling */
+:root {
+    --primary-color: #20c997;
+    --secondary-color: #0dcaf0;
+    --accent-color: #0d6efd;
+    --light-bg: #f8f9fa;
+    --dark-color: #212529;
+    --card-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08);
+    --gradient-primary: linear-gradient(135deg, #20c997, #0dcaf0);
+    --gradient-hover: linear-gradient(135deg, #0dcaf0, #20c997);
+}
+
+body {
+    background-color: #f6f6f6;
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+/* Navbar Styling */
+.navbar {
+    background: var(--gradient-primary) !important;
+    padding: 1rem 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.navbar .nav-item {
+    margin: 0 0.25rem;
+}
+
+.navbar .nav-link {
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.navbar .nav-link:hover, .navbar .nav-link.active {
+    color: #fff;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.navbar-text {
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-container {
+    width: 44px;
+    height: 44px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.logo-container:hover {
+    transform: scale(1.05);
+}
+
+.logo-img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+.brand-text {
+    font-size: 1.25rem;
+    font-weight: 600;
+    background-image: linear-gradient(90deg, #fff, rgba(255, 255, 255, 0.8));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Page Header */
+.page-header {
+    background: var(--gradient-primary);
+    color: #fff;
+    padding: 3rem 0;
+    border-radius: 0 0 2rem 2rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-text {
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-size: x-large;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-subtitle {
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+/* Card Styling */
+.dashboard-card {
+    border-radius: 1rem;
+    border: none;
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    background-color: #fff;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-header-custom {
+    background: var(--gradient-primary);
+    color: white;
+    padding: 1rem 1.5rem;
+    font-weight: 500;
+    border-bottom: none;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+/* Stat Cards */
+.stat-card {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.stat-value {
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin: 0.5rem 0;
+}
+
+/* Status Badges */
+.status-badges-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.status-badge {
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.status-normal {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+}
+
+.status-primary {
+    background: linear-gradient(135deg, #0d6efd, #0dcaf0);
+    color: white;
+}
+
+.status-info {
+    background: linear-gradient(135deg, #17a2b8, #0dcaf0);
+    color: white;
+}
+
+.status-warning {
+    background: linear-gradient(135deg, #ffc107, #fd7e14);
+    color: white;
+}
+
+/* Info Alert */
+.info-alert {
+    background-color: rgba(255, 193, 7, 0.15);
+    border-left: 4px solid #ffc107;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Buttons */
+.btn-gradient {
+    background: var(--gradient-primary);
+    border: none;
+    color: white;
+    border-radius: 50px;
+    padding: 0.6rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+}
+
+.btn-gradient:hover {
+    background: var(--gradient-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+}
+
+/* Form Elements */
+.weight-select {
+    border-radius: 50px;
+    padding: 0.6rem 1rem;
+    border: 2px solid rgba(32, 201, 151, 0.3);
+    transition: all 0.3s ease;
+}
+
+.weight-select:focus {
+    box-shadow: 0 0 0 0.25rem rgba(32, 201, 151, 0.25);
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+/* Table Styling */
+.table-custom {
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 0;
+}
+
+.table-custom thead {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+.table-custom th {
+    font-weight: 600;
+    border: none;
+    padding: 1rem;
+}
+
+.table-custom td {
+    padding: 1rem;
+    vertical-align: middle;
+    border-color: #f0f0f0;
+}
+
+.table-custom tbody tr {
+    transition: all 0.2s ease;
+}
+
+.table-custom tbody tr:hover {
+    background-color: rgba(32, 201, 151, 0.05);
+}
+
+/* BMI Related Styles */
+.bmi-category {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.bmi-marker {
+    position: relative;
+    height: 0.5rem;
+    background-color: #e9ecef;
+    flex-grow: 1;
+    margin: 0 2px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.bmi-marker.active {
+    background-color: var(--primary-color);
+}
+
+.bmi-label {
+    text-align: center;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    color: #6c757d;
+    transition: all 0.3s ease;
+}
+
+.bmi-label.active {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.info-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--gradient-primary);
+    color: white;
+    margin: 0 auto;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.info-circle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.info-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.info-label {
+    font-size: 0.875rem;
+    opacity: 0.9;
+    margin-top: 0.5rem;
+}
+
+/* Animation Effects */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pulse-animation {
+    animation: pulse 2s infinite;
+}
+
+/* Footer */
+footer {
+    background: var(--gradient-primary);
+    color: white;
+    padding: 2rem 0;
+    margin-top: 3rem;
+    font-weight: 500;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.footer-links a:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.social-links a {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.social-links a:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+    .page-header {
+        padding: 2rem 0;
+        border-radius: 0 0 1rem 1rem;
+    }
+    
+    .welcome-text {
+        font-size: 1.5rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .btn-gradient {
+        width: 100%;
+        margin-top: 0.5rem;
+        justify-content: center;
+    }
+    
+    .navbar-text {
+        margin-top: 1rem;
+    }
+    
+    .status-badges-container {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .status-badge {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --card-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    }
+    
+    body {
+        background-color: #181818;
+        color: #e0e0e0;
+    }
+    
+    .dashboard-card {
+        background-color: #222;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    
+    .weight-select {
+        background-color: #333;
+        color: #fff;
+        border-color: rgba(32, 201, 151, 0.5);
+    }
+    
+    .table-custom tbody tr:hover {
+        background-color: rgba(32, 201, 151, 0.1);
+    }
+    
+    .info-alert {
+        background-color: rgba(255, 193, 7, 0.1);
+    }
+}
