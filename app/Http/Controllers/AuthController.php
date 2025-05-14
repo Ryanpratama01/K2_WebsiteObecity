@@ -54,15 +54,20 @@ class AuthController extends Controller
             'email'    => 'required|email',
             'password' => 'required',
         ]);
+        // dd(Auth::attempt($credentials));
 
-        if (!Auth::attempt($credentials)) {
-            throw ValidationException::withMessages([
-                'email' => 'These credentials do not match our records.',
-            ]);
+        // if (!Auth::attempt($credentials)) {
+        //     throw ValidationException::withMessages([
+        //         'email' => 'These credentials do not match our records.',
+        //     ]);
+        // }
+        if ($user = Auth::attempt($credentials)) {
+            # code...
+            dd($user);
+            return redirect()->route('dashboard.index');
         }
 
-        $request->session()->regenerate();
-        return redirect()->route('dashboard.index');
+        // $request->session()->regenerate();
     }
 
     public function logout(Request $request)

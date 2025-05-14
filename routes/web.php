@@ -14,15 +14,15 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('register', 'registerSave')->name('register.save');
   
     Route::get('login', 'login')->name('login');
-    Route::post('login', 'loginAction')->name('login.action');
+    Route::post('login/action', 'loginAction')->name('login.action');
   
     Route::get('logout', 'logout')->middleware('auth')->name('logout');
 });
   
+Route::get('dashboard', function () {
+    return view('web_admin.dashboard');
+})->name('dashboard.index');
 Route::middleware('auth')->group(function () {
-    Route::get('dashboard', function () {
-        return view('web_admin.dashboard');
-    })->name('dashboard.index');
  
     Route::controller(UserController::class)->prefix('users')->group(function () {
         Route::get('', 'index')->name('users');
