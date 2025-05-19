@@ -89,7 +89,7 @@ class UserController extends Controller
             'Berat_Badan' => 'required|numeric',
             'IMT' => 'nullable|numeric',
             'Date' => 'required|date',
-            'Email' => 'required|email|unique:users,Email,' . $user->id_User . ',id_User',
+            'email' => 'required|email|unique:users,Email,' . $user->id_User . ',id_User',
             'Password' => 'nullable|confirmed',
             'Role' => 'required|string'
         ]);

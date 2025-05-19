@@ -50,7 +50,7 @@
             </div>
             <div class="col mb-3">
                 <label class="form-label">Email</label>
-                <input type="email" name="Email" class="form-control" value="{{ $user->Email }}">
+                <input type="email" name="email" class="form-control" value="{{ $user->email }}">
             </div>
         </div>
 

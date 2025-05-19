@@ -9,13 +9,13 @@
         @csrf
 
         <div class="mb-3">
-            <label>Nama</label>
-            <input type="text" name="Nama" class="form-control" required>
+            <label for="Nama">Nama</label>
+            <input type="text" id="Nama" name="Nama" class="form-control" required autocomplete="name">
         </div>
 
         <div class="mb-3">
-            <label>Jenis Kelamin</label>
-            <select name="Jenis_Kelamin" class="form-control" required>
+            <label for="Jenis_Kelamin">Jenis Kelamin</label>
+            <select id="Jenis_Kelamin" name="Jenis_Kelamin" class="form-control" required>
                 <option value="">-- Pilih --</option>
                 <option value="Laki-laki">Laki-laki</option>
                 <option value="Perempuan">Perempuan</option>
@@ -43,18 +43,18 @@
         </div>
 
         <div class="mb-3">
-            <label>Tanggal</label>
-            <input type="date" name="Date" class="form-control" required>
+            <label for="Date">Tanggal</label>
+            <input type="date" id="Date" name="Date" class="form-control" required autocomplete="bday">
         </div>
 
         <div class="mb-3">
-            <label>Email</label>
-            <input type="email" name="Email" class="form-control" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" class="form-control" required autocomplete="email">
         </div>
 
         <div class="mb-3">
-            <label>Password</label>
-            <input type="password" name="Password" class="form-control" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" class="form-control" required autocomplete="new-password">
         </div>
 
         <div class="mb-3">
