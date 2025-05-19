@@ -14,7 +14,6 @@
             <input type="text" class="form-control" value="{{ $user->Jenis_Kelamin }}" readonly>
         </div>
     </div>
-
     <div class="row">
         <div class="col mb-3">
             <label class="form-label">Usia</label>
@@ -54,7 +53,6 @@
             <input type="text" class="form-control" value="{{ $user->Role }}" readonly>
         </div>
     </div>
-
 
     <div class="d-flex align-items-center justify-content-between">
         <a href="{{ route('users') }}" class="btn btn-primary">Go Back</a>

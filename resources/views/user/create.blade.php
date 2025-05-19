@@ -9,15 +9,15 @@
         @csrf
 
         <div class="mb-3">
-            <label for="Nama">Nama</label>
-            <input type="text" id="Nama" name="Nama" class="form-control" required autocomplete="name">
+            <label>Nama</label>
+            <textarea name="Nama" id="Nama" class="form-control" rows="4" required></textarea>
         </div>
 
         <div class="mb-3">
             <label for="Jenis_Kelamin">Jenis Kelamin</label>
             <select id="Jenis_Kelamin" name="Jenis_Kelamin" class="form-control" required>
                 <option value="">-- Pilih --</option>
-                <option value="Laki-laki">Laki-laki</option>
+                <option value="Laki-Laki">Laki-Laki</option>
                 <option value="Perempuan">Perempuan</option>
             </select>
         </div>
@@ -48,8 +48,8 @@
         </div>
 
         <div class="mb-3">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" class="form-control" required autocomplete="email">
+            <label>Email</label>
+            <textarea name="Email" id="Email" class="form-control" rows="4" required></textarea>
         </div>
 
         <div class="mb-3">
@@ -60,6 +60,7 @@
         <div class="mb-3">
             <label>Role</label>
             <select name="Role" class="form-control" required>
+                <option value="">-- Pilih --</option>
                 <option value="User">User</option>
                 <option value="Admin">Admin</option>
                 <option value="SuperAdmin">SuperAdmin</option>
