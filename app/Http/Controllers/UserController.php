@@ -35,8 +35,8 @@ class UserController extends Controller
             'Berat_Badan' => 'required|numeric',
             'IMT' => 'nullable|numeric',
             'Date' => 'required|date',
-            'Email' => 'required|email|unique:users,Email',
-            'Password' => 'required|confirmed',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|confirmed',
             'Role' => 'required|string'
         ]);
 
@@ -48,12 +48,12 @@ class UserController extends Controller
             'Berat_Badan' => $request->Berat_Badan,
             'IMT' => $request->IMT ?? null,
             'Date' => $request->Date,
-            'Email' => $request->Email,
-            'Password' => Hash::make($request->Password),
+            'email' => $request->Email,
+            'password' => Hash::make($request->Password),
             'Role' => $request->Role,
         ]);
 
-        return redirect()->route('user.user')->with('success', 'User berhasil ditambahkan');
+        return redirect()->route('users')->with('success', 'User berhasil ditambahkan');
     }
 
     /**

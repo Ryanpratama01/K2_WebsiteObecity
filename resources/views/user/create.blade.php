@@ -10,14 +10,14 @@
 
         <div class="mb-3">
             <label>Nama</label>
-            <input type="text" name="Nama" class="form-control" required>
+            <textarea name="Nama" id="Nama" class="form-control" rows="4" required></textarea>
         </div>
 
         <div class="mb-3">
             <label>Jenis Kelamin</label>
             <select name="Jenis_Kelamin" class="form-control" required>
                 <option value="">-- Pilih --</option>
-                <option value="Laki-laki">Laki-laki</option>
+                <option value="Laki-Laki">Laki-Laki</option>
                 <option value="Perempuan">Perempuan</option>
             </select>
         </div>
@@ -49,7 +49,7 @@
 
         <div class="mb-3">
             <label>Email</label>
-            <input type="email" name="Email" class="form-control" required>
+            <textarea name="Email" id="Email" class="form-control" rows="4" required></textarea>
         </div>
 
         <div class="mb-3">
@@ -60,6 +60,7 @@
         <div class="mb-3">
             <label>Role</label>
             <select name="Role" class="form-control" required>
+                <option value="">-- Pilih --</option>
                 <option value="User">User</option>
                 <option value="Admin">Admin</option>
                 <option value="SuperAdmin">SuperAdmin</option>

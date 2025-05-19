@@ -14,16 +14,22 @@
   <!-- Nav Item - Dashboard -->
   <li class="nav-item">
     <a class="nav-link" href="{{ route('dashboard.index') }}">
-      <i class="fas fa-fw fa-tachometer-alt"></i>
+      <i class="fa-solid fa-house"></i>
       <span>Dashboard</span></a>
   </li>
   
   <li class="nav-item">
     <a class="nav-link" href="{{ route('users') }}">
-      <i class="fas fa-fw fa-tachometer-alt"></i>
+      <i class="fa-solid fa-database"></i>
       <span>Data User</span></a>
   </li>
   
+  <li class="nav-item">
+    <a class="nav-link" href="{{ route('recommends') }}">
+      <i class="fa-solid fa-star"></i>
+      <span>Data Rekomendasi</span></a>
+  </li>
+
   <!-- Divider -->
   <hr class="sidebar-divider d-none d-md-block">
   
