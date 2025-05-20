@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the users.
-     */
     public function index()
     {
         $users = User::orderBy('Date', 'DESC')->get();
@@ -27,18 +24,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'Nama' => 'required|string',
-            'Jenis_Kelamin' => 'required|in:Laki-laki,Perempuan',
-            'Usia' => 'required|numeric',
-            'Tinggi_Badan' => 'required|numeric',
-            'Berat_Badan' => 'required|numeric',
-            'IMT' => 'nullable|numeric',
-            'Date' => 'required|date',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|confirmed',
-            'Role' => 'required|string'
-        ]);
+        // $request->validate([
+        //     'Nama' => 'required|string',
+        //     'Jenis_Kelamin' => 'required',
+        //     'Usia' => 'required',
+        //     'Tinggi_Badan' => 'required',    
+        //     'Berat_Badan' => 'required',
+        //     'IMT' => 'nullable',
+        //     'Date' => 'required|date',
+        //     'email' => 'required|email',
+        //     'password' => 'required|confirmed',
+        //     'Role' => 'required|string'
+        // ]);
+        // dd('hehe');
 
         User::create([
             'Nama' => $request->Nama,
