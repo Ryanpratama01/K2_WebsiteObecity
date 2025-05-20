@@ -36,7 +36,6 @@ class UserController extends Controller
         //     'password' => 'required|confirmed',
         //     'Role' => 'required|string'
         // ]);
-        // dd('hehe');
 
         User::create([
             'Nama' => $request->Nama,
@@ -92,9 +91,9 @@ class UserController extends Controller
             'Role' => 'required|string'
         ]);
 
-        $data = $request->except(['Password']);
-        if ($request->filled('Password')) {
-            $data['Password'] = Hash::make($request->Password);
+        $data = $request->except(['password']);
+        if ($request->filled('password')) {
+            $data['password'] = Hash::make($request->Password);
         }
 
         $user->update($data);
@@ -107,12 +106,12 @@ class UserController extends Controller
      * Remove the specified user from storage.
      */
     public function destroy(string $id)
-    {
-        $user = User::where('id_User', $id)->firstOrFail();
-        $user->delete();
+{
+    $user = User::where('id_User', $id)->firstOrFail();
+    $user->delete();
 
-        return redirect()->route('users.destroy')->with('success', 'User berhasil dihapus');
-    }
+    return redirect()->route('users')->with('success', 'User berhasil dihapus');
+}
 
     public function profile()
     {
