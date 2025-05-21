@@ -1,10 +1,10 @@
-<!-- resources/views/auth/register.blade.php -->
+<!-- resources/views/auth/reset-password.blade.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register | ObesityCheck</title>
+    <title>Reset Password | ObesityCheck</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -171,11 +171,14 @@
         
         <div class="card">
             <div class="card-header">
-                <h1>Create Your Account</h1>
+                <h1>Create New Password</h1>
             </div>
             
-            <form action="{{ route('register.save') }}" method="POST">
+            <form action="{{ route('password.update') }}" method="POST">
                 @csrf
+                
+                <!-- Password Reset Token -->
+                <input type="hidden" name="token" value="{{ $request->route('token') }}">
                 
                 @if ($errors->any())
                     <div class="alert alert-danger">
@@ -188,23 +191,6 @@
                 @endif
                 
                 <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input 
-                        name="name" 
-                        type="text" 
-                        class="form-control" 
-                        id="name" 
-                        placeholder="Enter your full name"
-                        value="{{ old('name') }}"
-                        autocomplete="name"
-                        required
-                    >
-                    @error('name')
-                        <span class="invalid-feedback">{{ $message }}</span>
-                    @enderror
-                </div>
-                
-                <div class="form-group">
                     <label for="email">Email Address</label>
                     <input 
                         name="email" 
@@ -212,9 +198,9 @@
                         class="form-control" 
                         id="email" 
                         placeholder="Enter your email"
-                        value="{{ old('email') }}"
+                        value="{{ old('email', $request->email) }}"
                         autocomplete="email"
-                        required
+                        readonly
                     >
                     @error('email')
                         <span class="invalid-feedback">{{ $message }}</span>
@@ -223,13 +209,13 @@
                 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="password">Password</label>
+                        <label for="password">New Password</label>
                         <input 
                             name="password" 
                             type="password" 
                             class="form-control" 
                             id="password" 
-                            placeholder="Enter your password"
+                            placeholder="Enter new password"
                             autocomplete="new-password"
                             required
                         >
@@ -245,20 +231,17 @@
                             type="password" 
                             class="form-control" 
                             id="password_confirmation" 
-                            placeholder="Confirm your password"
+                            placeholder="Confirm new password"
                             autocomplete="new-password"
                             required
                         >
-                        @error('password_confirmation')
-                            <span class="invalid-feedback">{{ $message }}</span>
-                        @enderror
                     </div>
                 </div>
                 
-                <button type="submit" class="btn btn-primary">Register Account</button>
+                <button type="submit" class="btn btn-primary">Reset Password</button>
                 
                 <div class="login-prompt">
-                    <p>Already have an account? <a href="{{ route('login') }}">Login</a></p>
+                    <p>Remember your password? <a href="{{ route('login') }}">Back to Login</a></p>
                 </div>
             </form>
         </div>

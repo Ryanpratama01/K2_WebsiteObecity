@@ -16,6 +16,11 @@ Route::controller(AuthController::class)->group(function () {
   
     Route::get('login', 'login')->name('login');
     Route::post('login', 'loginAction')->name('login.action');
+
+    Route::get('/forgot-password', )->name('password.request');
+    
+    Route::get('/forgot-password', [AuthController::class, 'showForgotPasswordForm'])->name('password.request');
+    Route::post('/forgot-password', [AuthController::class, 'sendResetLinkEmail'])->name('password.email');
   
     Route::get('logout', 'logout')->middleware('auth')->name('logout');
 });

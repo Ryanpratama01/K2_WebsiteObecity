@@ -5,6 +5,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
 use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
@@ -43,6 +44,7 @@ class AuthController extends Controller
         ]);
         return redirect()->route('login')->with('success', 'Registration successful, please login.');
     }
+
     public function login()
     {
         return view('auth.login');
@@ -78,5 +80,26 @@ class AuthController extends Controller
     public function profile()
     {
         return view('web_admin.profile');
+    }
+
+    // ===============================
+    // Tambahan untuk Forgot Password
+    // ===============================
+    public function showForgotPasswordForm()
+    {
+        return view('auth.forgot-password');
+    }
+
+    public function sendResetLinkEmail(Request $request)
+    {
+        $request->validate(['email' => 'required|email']);
+
+        $status = Password::sendResetLink(
+            $request->only('email')
+        );
+
+        return $status === Password::RESET_LINK_SENT
+                    ? back()->with('status', __($status))
+                    : back()->withErrors(['email' => __($status)]);
     }
 }
