@@ -1,7 +1,10 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -18,29 +21,25 @@ class AuthController extends Controller
     public function registerSave(Request $request)
     {
         $request->validate([
-            'nama'           => 'required|string|max:255',
-            'jenis_kelamin'  => 'required|in:Laki-laki,Perempuan',
-            'usia'           => 'required|numeric',
-            'tinggi_badan'   => 'required|numeric',
-            'berat_badan'    => 'required|numeric',
-            'date'           => 'required|date',
+            'Nama'           => 'required|string|max:255',
+            'Jenis_Kelamin'  => 'required|in:Laki-laki,Perempuan',
+            'Usia'           => 'required|numeric',
+            'Tinggi_Badan'   => 'required|numeric',
+            'Berat_Badan'    => 'required|numeric',
             'email'          => 'required|email|unique:users,email',
             'password'       => 'required|confirmed|min:6',
-            'role'           => 'required|string',
+
+            // dd($request->all())  
         ]);
-        $tinggi = $request->tinggi_badan / 100;
-        $imt = $request->berat_badan / ($tinggi * $tinggi);
         User::create([
-            'nama'          => $request->nama,
-            'jenis_kelamin' => $request->jenis_kelamin,
-            'usia'          => $request->usia,
-            'tinggi_badan'  => $request->tinggi_badan,
-            'berat_badan'   => $request->berat_badan,
-            'imt'           => round($imt, 2),
-            'date'          => $request->date,
+            'Nama'          => $request->Nama,
+            'Jenis_Kelamin' => $request->Jenis_Kelamin,
+            'Usia'          => $request->Usia,
+            'Tinggi_Badan'  => $request->Tinggi_Badan,
+            'Berat_Badan'   => $request->Berat_Badan,
+            'Date'          => Carbon::now(),
             'email'         => $request->email,
             'password'      => Hash::make($request->password),
-            'role'          => $request->role,
         ]);
         return redirect()->route('login')->with('success', 'Registration successful, please login.');
     }
@@ -99,7 +98,7 @@ class AuthController extends Controller
         );
 
         return $status === Password::RESET_LINK_SENT
-                    ? back()->with('status', __($status))
-                    : back()->withErrors(['email' => __($status)]);
+            ? back()->with('status', __($status))
+            : back()->withErrors(['email' => __($status)]);
     }
 }

@@ -1,6 +1,7 @@
 <!-- resources/views/auth/register.blade.php -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +14,7 @@
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
         }
-        
+
         body {
             background-color: #f7f9fc;
             display: flex;
@@ -21,47 +22,47 @@
             justify-content: center;
             min-height: 100vh;
         }
-        
+
         .container {
             width: 100%;
             max-width: 450px;
             padding: 1rem;
         }
-        
+
         .brand {
             text-align: center;
             margin-bottom: 2rem;
         }
-        
+
         .brand a {
             color: #4CAF50;
             font-size: 32px;
             font-weight: 600;
             text-decoration: none;
         }
-        
+
         .card {
             background: #fff;
             border-radius: 10px;
             box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
             padding: 2rem;
         }
-        
+
         .card-header {
             text-align: center;
             margin-bottom: 2rem;
         }
-        
+
         .card-header h1 {
             color: #333;
             font-size: 22px;
             font-weight: 600;
         }
-        
+
         .form-group {
             margin-bottom: 1.5rem;
         }
-        
+
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
@@ -69,7 +70,7 @@
             color: #555;
             font-size: 14px;
         }
-        
+
         .form-control {
             width: 100%;
             padding: 0.75rem 1rem;
@@ -79,25 +80,25 @@
             background-color: #fafafa;
             transition: all 0.3s ease;
         }
-        
+
         .form-control:focus {
             border-color: #4CAF50;
             background-color: #fff;
             outline: none;
             box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
         }
-        
+
         .form-row {
             display: flex;
             gap: 15px;
             margin-bottom: 1.5rem;
         }
-        
+
         .form-row .form-group {
             flex: 1;
             margin-bottom: 0;
         }
-        
+
         .btn {
             display: block;
             width: 100%;
@@ -109,52 +110,52 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .btn-primary {
             background-color: #4CAF50;
             color: white;
         }
-        
+
         .btn-primary:hover {
             background-color: #3d9140;
         }
-        
+
         .login-prompt {
             text-align: center;
             margin-top: 1.5rem;
             font-size: 14px;
             color: #666;
         }
-        
+
         .login-prompt a {
             color: #4CAF50;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
         }
-        
+
         .login-prompt a:hover {
             text-decoration: underline;
         }
-        
+
         .alert {
             padding: 0.75rem 1rem;
             margin-bottom: 1.5rem;
             border-radius: 5px;
             font-size: 14px;
         }
-        
+
         .alert-danger {
             background-color: #fee;
             color: #e53935;
             border-left: 4px solid #e53935;
         }
-        
+
         .alert ul {
             margin-left: 1rem;
             margin-bottom: 0;
         }
-        
+
         .invalid-feedback {
             color: #e53935;
             font-size: 12px;
@@ -163,100 +164,103 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="brand">
             <a href="{{ url('/') }}">ObesityCheck</a>
         </div>
-        
+
         <div class="card">
             <div class="card-header">
                 <h1>Create Your Account</h1>
             </div>
-            
+
             <form action="{{ route('register.save') }}" method="POST">
                 @csrf
-                
+
                 @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
                 @endif
-                
+
                 <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input 
-                        name="name" 
-                        type="text" 
-                        class="form-control" 
-                        id="name" 
-                        placeholder="Enter your full name"
-                        value="{{ old('name') }}"
-                        autocomplete="name"
-                        required
-                    >
-                    @error('name')
-                        <span class="invalid-feedback">{{ $message }}</span>
+                    <label for="Nama">Full Name</label>
+                    <input name="Nama" type="text" class="form-control" id="Nama" placeholder="Enter your full name" value="{{ old('Nama') }}" autocomplete="Nama" required>
+                    @error('Nama')
+                    <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
-                
+
+                <div class="form-group">
+                    <label for="Jenis_Kelamin">Jenis Kelamin</label>
+                    <select name="Jenis_Kelamin" class="form-control" id="Jenis_Kelamin" required>
+                        <option value="" disabled selected>Pilih jenis kelamin</option>
+                        <option value="Laki-laki" {{ old('Jenis_Kelamin') == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
+                        <option value="Perempuan" {{ old('Jenis_Kelamin') == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
+                    </select>
+                    @error('Jenis_Kelamin')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="Usia">Usia</label>
+                    <input name="Usia" type="number" class="form-control" id="Usia" placeholder="Enter your Age Here" value="{{ old('Usia') }}" autocomplete="Usia" required>
+                    @error('Usia')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="Tinggi_Badan">Tinggi Badan</label>
+                    <input name="Tinggi_Badan" type="number" class="form-control" id="Tinggi_Badan" placeholder="Enter your Height Here" value="{{ old('Tinggi_Badan') }}" autocomplete="Tinggi_Badan" required>
+                    @error('Tinggi_Badan')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="Berat_Badan">Berat Badan</label>
+                    <input name="Berat_Badan" type="number" class="form-control" id="Berat_Badan" placeholder="Enter your Weight Here" value="{{ old('Berat_Badan') }}" autocomplete="Berat_Badan" required>
+                    @error('Berat_Badan')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror
+                </div>
+
                 <div class="form-group">
                     <label for="email">Email Address</label>
-                    <input 
-                        name="email" 
-                        type="email" 
-                        class="form-control" 
-                        id="email" 
-                        placeholder="Enter your email"
-                        value="{{ old('email') }}"
-                        autocomplete="email"
-                        required
-                    >
+                    <input name="email" type="email" class="form-control" id="email" placeholder="Enter your email" value="{{ old('email') }}" autocomplete="email" required>
                     @error('email')
-                        <span class="invalid-feedback">{{ $message }}</span>
+                    <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
-                
+
                 <div class="form-row">
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input 
-                            name="password" 
-                            type="password" 
-                            class="form-control" 
-                            id="password" 
-                            placeholder="Enter your password"
-                            autocomplete="new-password"
-                            required
-                        >
+                        <input name="password" type="password" class="form-control" id="password" placeholder="Enter your password" autocomplete="new-password" required>
                         @error('password')
-                            <span class="invalid-feedback">{{ $message }}</span>
+                        <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="password_confirmation">Confirm Password</label>
-                        <input 
-                            name="password_confirmation" 
-                            type="password" 
-                            class="form-control" 
-                            id="password_confirmation" 
-                            placeholder="Confirm your password"
-                            autocomplete="new-password"
-                            required
-                        >
+                        <input name="password_confirmation" type="password" class="form-control" id="password_confirmation" placeholder="Confirm your password" autocomplete="new-password" required>
                         @error('password_confirmation')
-                            <span class="invalid-feedback">{{ $message }}</span>
+                        <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
                     </div>
                 </div>
-                
+
                 <button type="submit" class="btn btn-primary">Register Account</button>
-                
+
                 <div class="login-prompt">
                     <p>Already have an account? <a href="{{ route('login') }}">Login</a></p>
                 </div>
@@ -264,4 +268,5 @@
         </div>
     </div>
 </body>
+
 </html>
