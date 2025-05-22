@@ -23,7 +23,6 @@
                 <th>Usia</th>
                 <th>Tinggi Badan</th>
                 <th>Berat Badan</th>
-                <th>IMT</th>
                 <th>Tanggal</th>
                 <th>Email</th>
                 <th>Role</th>
@@ -40,7 +39,6 @@
                         <td class="align-middle">{{ $user->Usia }}</td>
                         <td class="align-middle">{{ $user->Tinggi_Badan }}</td>
                         <td class="align-middle">{{ $user->Berat_Badan }}</td>
-                        <td class="align-middle">{{ $user->IMT }}</td>
                         <td class="align-middle">{{ $user->Date }}</td>
                         <td class="align-middle">{{ $user->Email }}</td>
                         <td class="align-middle">{{ $user->Role }}</td>

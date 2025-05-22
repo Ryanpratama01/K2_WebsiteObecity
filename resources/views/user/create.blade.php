@@ -38,11 +38,6 @@
         </div>
 
         <div class="mb-3">
-            <label>IMT (optional)</label>
-            <input type="number" step="0.01" name="IMT" class="form-control">
-        </div>
-
-        <div class="mb-3">
             <label for="Date">Tanggal</label>
             <input type="date" id="Date" name="Date" class="form-control" required autocomplete="bday">
         </div>

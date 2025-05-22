@@ -37,10 +37,6 @@
                 <label class="form-label">Berat Badan (kg)</label>
                 <input type="number" step="0.01" name="Berat_Badan" class="form-control" value="{{ $user->Berat_Badan }}">
             </div>
-            <div class="col mb-3">
-                <label class="form-label">IMT</label>
-                <input type="number" step="0.01" name="IMT" class="form-control" value="{{ $user->IMT }}">
-            </div>
         </div>
 
         <div class="row">

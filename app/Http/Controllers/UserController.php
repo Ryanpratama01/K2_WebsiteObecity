@@ -43,7 +43,6 @@ class UserController extends Controller
             'Usia' => $request->Usia,
             'Tinggi_Badan' => $request->Tinggi_Badan,
             'Berat_Badan' => $request->Berat_Badan,
-            'IMT' => $request->IMT ?? null,
             'Date' => $request->Date,
             'email' => $request->Email,
             'password' => Hash::make($request->Password),
@@ -84,16 +83,15 @@ class UserController extends Controller
             'Usia' => 'required|numeric',
             'Tinggi_Badan' => 'required|numeric',
             'Berat_Badan' => 'required|numeric',
-            'IMT' => 'nullable|numeric',
             'Date' => 'required|date',
             'email' => 'required|email|unique:users,Email,' . $user->id_User . ',id_User',
-            'Password' => 'nullable|confirmed',
+            'password' => 'nullable|confirmed',
             'Role' => 'required|string'
         ]);
 
         $data = $request->except(['password']);
         if ($request->filled('password')) {
-            $data['password'] = Hash::make($request->Password);
+            $data['password'] = Hash::make($request->password);
         }
 
         $user->update($data);

@@ -30,10 +30,6 @@
             <label class="form-label">Berat Badan (kg)</label>
             <input type="text" class="form-control" value="{{ $user->Berat_Badan }}" readonly>
         </div>
-        <div class="col mb-3">
-            <label class="form-label">IMT</label>
-            <input type="text" class="form-control" value="{{ $user->IMT }}" readonly>
-        </div>
     </div>
 
     <div class="row">
