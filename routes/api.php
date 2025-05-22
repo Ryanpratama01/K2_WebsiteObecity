@@ -18,3 +18,4 @@ Route::group([
   });
   Route::get('get_user', [AuthController::class, 'get_user']);
   Route::post("login",[AuthController::class,'login']);
+  Route::post('/register', [AuthController::class, 'apiRegister']);
