@@ -5,6 +5,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RecommendController;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\PieController;
+use App\Http\Controllers\ChartController;
  
 Route::get('/', function () {
     return view('landing_page.index');
@@ -56,3 +58,6 @@ Route::controller(RecommendController::class)->prefix('recommends')->group(funct
         Route::put('edit/{id}', 'update')->name('recommends.update');
         Route::delete('destroy/{id}', 'destroy')->name('recommends.destroy');
     });
+Route::get('/bmi-data', [PieController::class, 'getBMIData']);
+
+Route::get('/get-user-data', [ChartController::class, 'getUserData']);

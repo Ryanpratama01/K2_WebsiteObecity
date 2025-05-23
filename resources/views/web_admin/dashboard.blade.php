@@ -21,16 +21,16 @@
                     </div>
                     <div class="legend">
                         <div class="legend-item">
-                            <div class="legend-color" style="background-color: #424242;"></div>
-                            <div class="legend-label">Insufficient</div>
+                             <!-- <div class="legend-color" style="background-color: #424242;"></div> -->
+                            <!-- <div class="legend-label">Insufficient</div>  -->
                         </div>
                         <div class="legend-item">
-                            <div class="legend-color" style="background-color: #4CAF50;"></div>
-                            <div class="legend-label">Normal</div>
+                            <!-- <div class="legend-color" style="background-color: #4CAF50;"></div>
+                            <div class="legend-label">Normal</div> -->
                         </div>
                         <div class="legend-item">
-                            <div class="legend-color" style="background-color: #80CBC4;"></div>
-                            <div class="legend-label">Overweight</div>
+                            <!-- <div class="legend-color" style="background-color: #80CBC4;"></div> -->
+                            <!-- <div class="legend-label">Overweight</div> -->
                         </div>
                     </div>
                 </div>
@@ -39,68 +39,83 @@
 
     <script>
         // Line Chart
-        const userCtx = document.getElementById('userChart').getContext('2d');
-        const userChart = new Chart(userCtx, {
-            type: 'line',
-            data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                datasets: [{
-                    label: 'Jumlah User',
-                    data: [35, 40, 30, 45, 35, 55, 65, 60, 80, 75, 65, 80],
-                    fill: true,
-                    backgroundColor: 'rgba(77, 182, 172, 0.2)',
-                    borderColor: '#26a69a',
-                    pointBackgroundColor: '#26a69a',
-                    tension: 0.4
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false
-                    }
+        fetch('/get-user-data')
+        .then(response => response.json())
+        .then(data => {
+            const userCtx = document.getElementById('userChart').getContext('2d');
+            const userChart = new Chart(userCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                             'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [{
+                        label: 'Jumlah User',
+                        data: data, // ← diisi dari Laravel
+                        fill: true,
+                        backgroundColor: 'rgba(77, 182, 172, 0.2)',
+                        borderColor: '#26a69a',
+                        pointBackgroundColor: '#26a69a',
+                        tension: 0.4
+                    }]
                 },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 100,
-                        ticks: {
-                            stepSize: 20
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
                         }
                     },
-                    x: {
-                        grid: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                stepSize: 20
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+        })
+        .catch(error => {
+            console.error('Gagal memuat data chart:', error);
+        });
+
+        // Donut Chart
+        fetch('/bmi-data')
+        .then(response => response.json())
+        .then(data => {
+            const donutCtx = document.getElementById('donutChart').getContext('2d');
+            const donutChart = new Chart(donutCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Insufficient_Weight', 'Normal_Weight', 'Overweight', 'Obesity', 'Severe_Obesity'],
+                    datasets: [{
+                        data: data,
+                        backgroundColor: ['#424242', '#4CAF50', '#80CBC4', '#FF9800', '#E53935'],
+                        borderWidth: 0,
+                        cutout: '70%'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
                             display: false
                         }
                     }
                 }
-            }
-        });
-
-        // Donut Chart
-        const donutCtx = document.getElementById('donutChart').getContext('2d');
-        const donutChart = new Chart(donutCtx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Insufficient', 'Normal', 'Overweight'],
-                datasets: [{
-                    data: [30, 45, 25],
-                    backgroundColor: ['#424242', '#4CAF50', '#80CBC4'],
-                    borderWidth: 0,
-                    cutout: '70%'
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                }
-            }
+            });
+        })
+        .catch(error => {
+            console.error('Gagal memuat data donut chart:', error);
         });
     </script>
 @endsection
