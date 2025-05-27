@@ -37,9 +37,13 @@
             </div>
     </div>
 
-    <script>
+   
+@endsection
+
+@section('script')
+ <script>
         // Line Chart
-        fetch('/get-user-data')
+         fetch('/get-user-data')
         .then(response => response.json())
         .then(data => {
             const userCtx = document.getElementById('userChart').getContext('2d');
@@ -55,7 +59,6 @@
                         backgroundColor: 'rgba(77, 182, 172, 0.2)',
                         borderColor: '#26a69a',
                         pointBackgroundColor: '#26a69a',
-                        tension: 0.4
                     }]
                 },
                 options: {
@@ -68,10 +71,11 @@
                     },
                     scales: {
                         y: {
-                            beginAtZero: true,
-                            max: 100,
+                          beginAtZero: true,
                             ticks: {
-                                stepSize: 20
+                                
+                                // stepSize: 1
+                                //  precision: 0
                             }
                         },
                         x: {

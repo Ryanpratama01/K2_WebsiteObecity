@@ -20,7 +20,7 @@ class AuthController extends Controller
 
     public function registerSave(Request $request)
     {
-        $request->validate([
+       $request->validate([
             'Nama'           => 'required|string|max:255',
             'Jenis_Kelamin'  => 'required|in:Laki-laki,Perempuan',
             'Usia'           => 'required|numeric',
@@ -37,7 +37,6 @@ class AuthController extends Controller
             'Usia'          => $request->Usia,
             'Tinggi_Badan'  => $request->Tinggi_Badan,
             'Berat_Badan'   => $request->Berat_Badan,
-            'Date'          => Carbon::now(),
             'email'         => $request->email,
             'password'      => Hash::make($request->password),
         ]);
