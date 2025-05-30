@@ -37,13 +37,13 @@
                 <label class="form-label">Berat Badan (kg)</label>
                 <input type="number" step="0.01" name="Berat_Badan" class="form-control" value="{{ $user->Berat_Badan }}">
             </div>
+            <div class="col mb-3">
+                <label class="form-label">IMT</label>
+                <input type="number" step="0.01" name="IMT" class="form-control" value="{{ $user->IMT }}">
+            </div>
         </div>
 
         <div class="row">
-            <div class="col mb-3">
-                <label class="form-label">Tanggal</label>
-                <input type="date" name="Date" class="form-control" value="{{ $user->Date }}">
-            </div>
             <div class="col mb-3">
                 <label class="form-label">Email</label>
                 <input type="email" name="email" class="form-control" value="{{ $user->email }}">
@@ -53,7 +53,7 @@
         <div class="row">
             <div class="col mb-3">
                 <label class="form-label">Password (Kosongkan jika tidak diubah)</label>
-                <input type="password" name="Password" class="form-control">
+                <input type="password" name="password" class="form-control">
             </div>
             <div class="col mb-3">
                 <label class="form-label">Role</label>
