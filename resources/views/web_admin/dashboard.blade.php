@@ -53,7 +53,6 @@
                         data: data, // ← diisi dari Laravel
                         fill: true,
                         backgroundColor: 'rgba(77, 182, 172, 0.2)',
-                        borderColor: '#26a69a',
                         pointBackgroundColor: '#26a69a',
                         tension: 0.4
                     }]
