@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -22,7 +24,6 @@ class User extends Authenticatable implements JWTSubject
 
      protected $primaryKey = 'id_User';
      protected $table = 'users';
-     public $timestamps = false;
         protected $fillable = [
         'Nama', 'Jenis_Kelamin', 'Usia', 'Tinggi_Badan', 'Berat_Badan',
         'Date', 'email', 'password', 'Role'
@@ -37,6 +38,17 @@ class User extends Authenticatable implements JWTSubject
         'password',
         'remember_token',
     ];
+
+    // protected function password(){
+    //     return Attribute::make(
+    //         set: fn (string $value) => bcrypt($value),
+    //     );
+    // }
+    // protected function Date(){
+    //     return Attribute::make(
+    //         set: fn (string $value) => Carbon::now(),
+    //     );
+    // }
 
     
     

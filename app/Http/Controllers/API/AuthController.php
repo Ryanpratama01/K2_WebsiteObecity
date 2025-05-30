@@ -37,34 +37,32 @@ class AuthController extends Controller
       'user' => Auth::guard('api')->user(),
     ]);
   }
-  public function apiRegister(Request $request)
-  {
-    $request->validate([
-      'Nama'           => 'required|string|max:255',
-      'Jenis_Kelamin'  => 'required|in:Laki-laki,Perempuan',
-      'Usia'           => 'required|numeric',
-      'Tinggi_Badan'   => 'required|numeric',
-      'Berat_Badan'    => 'required|numeric',
-      'Date'           => 'required|date',
-      'email'          => 'required|email|unique:users,email',
-      'password'       => 'required|confirmed|min:6',
+ public function apiRegister(Request $request)
+{
+    $validated = $request->validate([
+            'Nama'           => 'required|string|max:255',
+            'Jenis_Kelamin'  => 'required|in:Laki-laki,Perempuan',
+            'Usia'           => 'required|numeric',
+            'Tinggi_Badan'   => 'required|numeric',
+            'Berat_Badan'    => 'required|numeric',
+            'email'          => 'required|email|unique:users,email',
+            'password'       => 'required|min:6',
     ]);
 
     $user = User::create([
-      'Nama'          => $request->Nama,
-      'Jenis_Kelamin' => $request->Jenis_Kelamin,
-      'Usia'          => $request->Usia,
-      'Tinggi_Badan'  => $request->Tinggi_Badan,
-      'Berat_Badan'   => $request->Berat_Badan,
-      'Date'          => $request->Date,
-      'email'         => $request->email,
-      'password'      => Hash::make($request->password),
-    ]);
+        'Nama'          => $validated['Nama'],
+        'Jenis_Kelamin' => $validated['Jenis_Kelamin'],
+        'Usia'          => $validated['Usia'],
+        'email'         => $validated['email'],
+        'Tinggi_Badan'  => $validated['Tinggi_Badan'],
+        'Berat_Badan'   => $validated['Berat_Badan'],
+        'password'      => bcrypt($validated['password']),]
+    );
 
     return response()->json([
-      'success' => true,
-      'message' => 'Registrasi berhasil',
-      'data'    => $user
+        'message' => 'User registered successfully',
+        'user' => $user
     ], 201);
-  }
+}
+
 }
