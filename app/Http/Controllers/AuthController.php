@@ -24,8 +24,9 @@ class AuthController extends Controller
             'Nama'           => 'required|string|max:255',
             'Jenis_Kelamin'  => 'required|in:Laki-laki,Perempuan',
             'Usia'           => 'required|numeric',
-            'Tinggi_Badan'   => 'required|numeric',
             'Berat_Badan'    => 'required|numeric',
+            'Tinggi_Badan'   => 'required|numeric',
+            'IMT'            => 'required|numeric',
             'email'          => 'required|email|unique:users,email',
             'password'       => 'required|confirmed|min:6',
 
@@ -37,6 +38,7 @@ class AuthController extends Controller
             'Usia'          => $request->Usia,
             'Tinggi_Badan'  => $request->Tinggi_Badan,
             'Berat_Badan'   => $request->Berat_Badan,
+            'IMT'           => $request->IMT,
             'email'         => $request->email,
             'password'      => Hash::make($request->password),
         ]);
@@ -92,11 +94,11 @@ class AuthController extends Controller
     {
         $request->validate(['email' => 'required|email']);
 
-        $status = Password::sendResetLink(
+        $status = password::sendResetLink(
             $request->only('email')
         );
 
-        return $status === Password::RESET_LINK_SENT
+        return $status === password::RESET_LINK_SENT
             ? back()->with('status', __($status))
             : back()->withErrors(['email' => __($status)]);
     }

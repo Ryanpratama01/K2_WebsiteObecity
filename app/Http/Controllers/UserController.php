@@ -8,7 +8,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::orderBy('Date', 'DESC')->get();
+        $users = User::orderBy('created_at', 'DESC')->get();
         return view('user.user', compact('users'));
     }
 
@@ -24,28 +24,27 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'Nama' => 'required|string',
-        //     'Jenis_Kelamin' => 'required',
-        //     'Usia' => 'required',
-        //     'Tinggi_Badan' => 'required',    
-        //     'Berat_Badan' => 'required',
-        //     'IMT' => 'nullable',
-        //     'Date' => 'required|date',
-        //     'email' => 'required|email',
-        //     'password' => 'required|confirmed',
-        //     'Role' => 'required|string'
-        // ]);
+        $request->validate([
+             'Nama' => 'required|string',
+             'Jenis_Kelamin' => 'required',
+             'Usia' => 'required',
+             'Berat_Badan' => 'required',
+             'Tinggi_Badan' => 'required',    
+             'IMT' => 'nullable',
+             'email' => 'required|email',
+             'password' => 'required|confirmed',
+             'Role' => 'required|string'
+         ]);
 
         User::create([
             'Nama' => $request->Nama,
             'Jenis_Kelamin' => $request->Jenis_Kelamin,
             'Usia' => $request->Usia,
-            'Tinggi_Badan' => $request->Tinggi_Badan,
             'Berat_Badan' => $request->Berat_Badan,
-            'Date' => $request->Date,
-            'email' => $request->Email,
-            'password' => Hash::make($request->Password),
+            'Tinggi_Badan' => $request->Tinggi_Badan,
+            'IMT' => $request->IMT,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
             'Role' => $request->Role,
         ]);
 
@@ -81,10 +80,9 @@ class UserController extends Controller
             'Nama' => 'required|string',
             'Jenis_Kelamin' => 'required|in:Laki-laki,Perempuan',
             'Usia' => 'required|numeric',
-            'Tinggi_Badan' => 'required|numeric',
             'Berat_Badan' => 'required|numeric',
-            'Date' => 'required|date',
-            'email' => 'required|email|unique:users,Email,' . $user->id_User . ',id_User',
+            'Tinggi_Badan' => 'required|numeric',
+            'email' => 'required|email|unique:users,email,' . $user->id_User . ',id_User',
             'password' => 'nullable|confirmed',
             'Role' => 'required|string'
         ]);

@@ -12,7 +12,6 @@ class WebUserController extends Controller
 {
     return view('web_user.beranda'); // Menampilkan halaman beranda
 }
-
 public function kalkulator()
 {
     return view('web_user.kalkulator'); // Menampilkan halaman kalkulator

@@ -21,11 +21,13 @@
                 <th>Nama</th>
                 <th>Jenis Kelamin</th>
                 <th>Usia</th>
-                <th>Tinggi Badan</th>
                 <th>Berat Badan</th>
-                <th>Tanggal</th>
+                <th>Tinggi Badan</th>
+                <th>IMT</th>
                 <th>Email</th>
                 <th>Role</th>
+                <th>Created at</th>
+                <th>Updated at</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -37,11 +39,13 @@
                         <td class="align-middle">{{ $user->Nama }}</td>
                         <td class="align-middle">{{ $user->Jenis_Kelamin }}</td>
                         <td class="align-middle">{{ $user->Usia }}</td>
-                        <td class="align-middle">{{ $user->Tinggi_Badan }}</td>
                         <td class="align-middle">{{ $user->Berat_Badan }}</td>
-                        <td class="align-middle">{{ $user->Date }}</td>
-                        <td class="align-middle">{{ $user->Email }}</td>
+                        <td class="align-middle">{{ $user->Tinggi_Badan }}</td>
+                        <td class="align-middle">{{ $user->IMT }}</td>
+                        <td class="align-middle">{{ $user->email }}</td>
                         <td class="align-middle">{{ $user->Role }}</td>
+                        <td class="align-middle">{{ $user->created_at }}</td>
+                        <td class="align-middle">{{ $user->updated_at }}</td>
                         <td class="align-middle">
                             <div class="btn-group" role="group">
                                 <a href="{{ route('users.show', $user->id_User) }}" class="btn btn-secondary">Detail</a>
