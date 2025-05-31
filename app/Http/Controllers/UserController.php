@@ -82,7 +82,6 @@ class UserController extends Controller
             'Usia' => 'required|numeric',
             'Berat_Badan' => 'required|numeric',
             'Tinggi_Badan' => 'required|numeric',
-            'IMT' => 'required|numeric',
             'email' => 'required|email|unique:users,email,' . $user->id_User . ',id_User',
             'password' => 'nullable|confirmed',
             'Role' => 'required|string'
