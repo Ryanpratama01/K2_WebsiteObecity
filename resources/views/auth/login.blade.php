@@ -200,6 +200,12 @@
                         </ul>
                     </div>
                 @endif
+
+                @if (Session::has("errorRole"))
+                <div class="alert alert-danger">
+                        <p>Oooppsss credential yang anda masukkan memiliki role user</p>
+                    </div>
+                @endif
                 
                 <div class="form-group">
                     <label for="email">Email Address</label>

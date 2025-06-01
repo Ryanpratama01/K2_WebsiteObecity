@@ -20,27 +20,27 @@ class AuthController extends Controller
 
     public function registerSave(Request $request)
     {
-       $request->validate([
-            'Nama'           => 'required|string|max:255',
-            'Jenis_Kelamin'  => 'required|in:Laki-laki,Perempuan',
-            'Usia'           => 'required|numeric',
-            'Berat_Badan'    => 'required|numeric',
-            'Tinggi_Badan'   => 'required|numeric',
-            'IMT'            => 'required|numeric',
-            'email'          => 'required|email|unique:users,email',
-            'password'       => 'required|confirmed|min:6',
+        $request->validate([
+            'Nama' => 'required|string|max:255',
+            'Jenis_Kelamin' => 'required|in:Laki-laki,Perempuan',
+            'Usia' => 'required|numeric',
+            'Berat_Badan' => 'required|numeric',
+            'Tinggi_Badan' => 'required|numeric',
+            'IMT' => 'required|numeric',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|confirmed|min:6',
 
             // dd($request->all())  
         ]);
         User::create([
-            'Nama'          => $request->Nama,
+            'Nama' => $request->Nama,
             'Jenis_Kelamin' => $request->Jenis_Kelamin,
-            'Usia'          => $request->Usia,
-            'Tinggi_Badan'  => $request->Tinggi_Badan,
-            'Berat_Badan'   => $request->Berat_Badan,
-            'IMT'           => $request->IMT,
-            'email'         => $request->email,
-            'password'      => Hash::make($request->password),
+            'Usia' => $request->Usia,
+            'Tinggi_Badan' => $request->Tinggi_Badan,
+            'Berat_Badan' => $request->Berat_Badan,
+            'IMT' => $request->IMT,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
         ]);
         return redirect()->route('login')->with('success', 'Registration successful, please login.');
     }
@@ -53,7 +53,7 @@ class AuthController extends Controller
     public function loginAction(Request $request)
     {
         $credentials = $request->validate([
-            'email'    => 'required|email',
+            'email' => 'required|email',
             'password' => 'required',
         ]);
 
@@ -61,10 +61,19 @@ class AuthController extends Controller
             throw ValidationException::withMessages([
                 'email' => 'These credentials do not match our records.',
             ]);
-        }
+        } else {
+            if (
+                User::where("email", $credentials['email'])
+                    ->where('Role', 'User')->count() == 1
+            ) {
+                return redirect()->route('login')->with("errorRole","true"); 
+            }
+            else{
+                $request->session()->regenerate();
+                return redirect()->route('dashboard.index');
+            }
 
-        $request->session()->regenerate();
-        return redirect()->route('dashboard.index');
+        }
     }
 
     public function logout(Request $request)
