@@ -7,7 +7,7 @@
         <a href="{{ route('users.create') }}" class="btn btn-primary">Add User</a>
     </div>
     <hr />
-    
+
     @if(Session::has('success'))
         <div class="alert alert-success" role="alert">
             {{ Session::get('success') }}
@@ -47,14 +47,22 @@
                         <td class="align-middle">{{ $user->created_at }}</td>
                         <td class="align-middle">{{ $user->updated_at }}</td>
                         <td class="align-middle">
+                            @php
+                                $Role = auth()->user()->Role;
+                            @endphp
                             <div class="btn-group" role="group">
-                                <a href="{{ route('users.show', $user->id_User) }}" class="btn btn-secondary">Detail</a>
-                                <a href="{{ route('users.edit', $user->id_User) }}" class="btn btn-warning">Edit</a>
-                                <form action="{{ route('users.destroy', $user->id_User) }}" method="POST" onsubmit="return confirm('Hapus user ini?')">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger">Hapus</button>
-                                </form>
+                                @if(in_array($Role, ['SuperAdmin']))
+                                    <a href="{{ route('users.show', $user->id_User) }}" class="btn btn-secondary">Detail</a>
+                                    <a href="{{ route('users.edit', $user->id_User) }}" class="btn btn-warning">Edit</a>
+                                    <form action="{{ route('users.destroy', $user->id_User) }}" method="POST"
+                                        onsubmit="return confirm('Hapus user ini?')">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger">Hapus</button>
+                                    </form>
+                                    @else
+                                    <span class="text-muted">Tidak ada akses</span>
+                                @endif
                             </div>
                         </td>
                     </tr>

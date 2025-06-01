@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\PieController;
 use App\Http\Controllers\ChartController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+use App\Http\Middleware\RoleMiddleware;
 
 Route::get('/', function () {
     return view('landing_page.index');
@@ -75,3 +76,12 @@ Route::get('/get-user-data', [ChartController::class, 'getUserData']);
 //         return view('web_user.rekomendasi');
 //     });
 // });
+
+Route::get('/user', [UserController::class, 'index'])->middleware('role:admin,superadmin');
+
+
+Route::middleware([RoleMiddleware::class])->group(function () {
+    Route::get('/user/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
+    Route::put('/user/{id}', [UserController::class, 'update'])->name('user.update');
+    Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+});
