@@ -37,32 +37,33 @@ class AuthController extends Controller
       'user' => Auth::guard('api')->user(),
     ]);
   }
- public function apiRegister(Request $request)
-{
+  public function apiRegister(Request $request)
+  {
     $validated = $request->validate([
-            'Nama'           => 'required|string|max:255',
-            'Jenis_Kelamin'  => 'required|in:Laki-laki,Perempuan',
-            'Usia'           => 'required|numeric',
-            'Tinggi_Badan'   => 'required|numeric',
-            'Berat_Badan'    => 'required|numeric',
-            'email'          => 'required|email|unique:users,email',
-            'password'       => 'required|min:6',
+      'Nama'           => 'required|string|max:255',
+      'Jenis_Kelamin'  => 'required|in:Laki-laki,Perempuan',
+      'Usia'           => 'required|numeric',
+      'Tinggi_Badan'   => 'required|numeric',
+      'Berat_Badan'    => 'required|numeric',
+      'email'          => 'required|email|unique:users,email',
+      'password'       => 'required|min:6',
     ]);
 
-    $user = User::create([
+    $user = User::create(
+      [
         'Nama'          => $validated['Nama'],
         'Jenis_Kelamin' => $validated['Jenis_Kelamin'],
         'Usia'          => $validated['Usia'],
         'email'         => $validated['email'],
         'Tinggi_Badan'  => $validated['Tinggi_Badan'],
         'Berat_Badan'   => $validated['Berat_Badan'],
-        'password'      => bcrypt($validated['password']),]
-    );
+        'password'      => bcrypt($validated['password']),
+      ]
+    ); 
 
     return response()->json([
-        'message' => 'User registered successfully',
-        'user' => $user
+      'message' => 'User registered successfully',
+      'user' => $user
     ], 201);
-}
-
+  }
 }
