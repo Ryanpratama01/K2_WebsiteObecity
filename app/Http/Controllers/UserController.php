@@ -33,7 +33,6 @@ class UserController extends Controller
              'IMT' => 'nullable',
              'email' => 'required|email',
              'password' => 'required|confirmed',
-             'Role' => 'required|string'
          ]);
 
         User::create([
@@ -45,7 +44,6 @@ class UserController extends Controller
             'IMT' => $request->IMT,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'Role' => $request->Role,
         ]);
 
         return redirect()->route('users')->with('success', 'User berhasil ditambahkan');

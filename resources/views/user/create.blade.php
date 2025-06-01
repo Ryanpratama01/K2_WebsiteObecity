@@ -36,11 +36,6 @@
             <label>Tinggi Badan (cm)</label>
             <input type="number" step="0.01" name="Tinggi_Badan" class="form-control" required>
         </div>
-
-        <div class="mb-3">
-            <label>IMT</label>
-            <input type="number" step="0.01" name="IMT" class="form-control" required>
-        </div>
         <!-- <script>
             const Berat_Badan = document.getElementById('Berat_Badan');
             const TinggiBadan = document.getElementById('Tinggi_Badan');
@@ -73,15 +68,6 @@
         <div class="mb-3">
             <label>Konfirmasi Password</label>
             <input type="password" name="password_confirmation" class="form-control" required>
-        </div>
-        <div class="mb-3">
-            <label>Role</label>
-            <select name="Role" class="form-control" required>
-                <option value="">-- Pilih --</option>
-                <option value="User">User</option>
-                <option value="Admin">Admin</option>
-                <option value="SuperAdmin">SuperAdmin</option>
-            </select>
         </div>
 
         <div class="d-flex justify-content-between">
