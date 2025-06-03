@@ -30,7 +30,6 @@ class RecommendController extends Controller
     {
         $request->validate([
             'kategori_bmi'    => 'required|string',
-            'definisi'        => 'nullable|string',
             'saran_makanan'   => 'nullable|string',
             'saran_aktivitas' => 'nullable|string',
             'saran_lain'      => 'nullable|string',
@@ -38,7 +37,6 @@ class RecommendController extends Controller
 
         Recommend::create([
             'kategori_bmi'    => $request->kategori_bmi,
-            'definisi'        => $request->definisi,
             'saran_makanan'   => $request->saran_makanan,
             'saran_aktivitas' => $request->saran_aktivitas,
             'saran_lain'      => $request->saran_lain,
@@ -74,7 +72,6 @@ class RecommendController extends Controller
 
         $request->validate([
             'kategori_bmi'    => 'required|string',
-            'definisi'        => 'nullable|string',
             'saran_makanan'   => 'nullable|string',
             'saran_aktivitas' => 'nullable|string',
             'saran_lain'      => 'nullable|string',
@@ -82,7 +79,6 @@ class RecommendController extends Controller
 
         $recommend->update([
             'kategori_bmi'    => $request->kategori_bmi,
-            'definisi'        => $request->definisi,
             'saran_makanan'   => $request->saran_makanan,
             'saran_aktivitas' => $request->saran_aktivitas,
             'saran_lain'      => $request->saran_lain,

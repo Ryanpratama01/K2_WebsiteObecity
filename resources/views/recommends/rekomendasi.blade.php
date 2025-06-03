@@ -19,7 +19,6 @@
             <tr>
                 <th>ID</th>
                 <th>Kategori BMI</th>
-                <th>Definisi</th>
                 <th>Saran Makanan</th>
                 <th>Saran Aktivitas</th>
                 <th>Saran Lain</th>
@@ -32,7 +31,6 @@
                     <tr>
                         <td class="align-middle">{{ $loop->iteration }}</td>
                         <td class="align-middle">{{ $recommend->kategori_bmi }}</td>
-                        <td class="align-middle">{{ $recommend->definisi }}</td>
                         <td class="align-middle">{{ $recommend->saran_makanan }}</td>
                         <td class="align-middle">{{ $recommend->saran_aktivitas }}</td>
                         <td class="align-middle">{{ $recommend->saran_lain }}</td>

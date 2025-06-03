@@ -10,12 +10,12 @@
             <input type="text" class="form-control" value="{{ $recommend->kategori_bmi }}" readonly>
         </div>
     </div> 
-    <div class="row">
+    {{-- <div class="row">
         <div class="col mb-3">
             <label class="form-label">Definisi</label>
             <input type="text" class="form-control" value="{{ $recommend->definisi }}" readonly>
         </div>
-    </div>
+    </div> --}}
     <div class="row">
         <div class="col mb-3">
             <label class="form-label">Saran Makanan</label>

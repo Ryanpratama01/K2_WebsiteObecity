@@ -12,21 +12,20 @@
             <label class="form-label">Kategori BMI</label>
             <select name="kategori_bmi" class="form-control" required>
                 <option value="">-- Pilih --</option>
-                <option value="Insufficient_Weight">Insufficient Weight</option>
-                <option value="Normal_Weight">Normal Weight</option>
+                <option value="Underweight">Underweight</option>
+                <option value="Normal">Normal</option>
                 <option value="Overweight">Overweight</option>
-                <option value="Obesity">Obesity</option>
-                <option value="Severe_Obesity">Severe Obesity</option>
+                <option value="Obesitas">Obesitas</option>
             </select>
         </div>
     </div> 
 
-    <div class="row">
+    {{-- <div class="row">
         <div class="col mb-3">
             <label class="form-label">Definisi</label>
             <input type="text" name="definisi" class="form-control" value="{{ $recommend->definisi }}">
         </div>
-    </div>
+    </div> --}}
 
     <div class="row">
         <div class="col mb-3">

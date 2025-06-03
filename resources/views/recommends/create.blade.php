@@ -12,18 +12,17 @@
             <label>Kategori BMI</label>
             <select name="kategori_bmi" class="form-control" required>
                 <option value="">-- Pilih --</option>
-                <option value="Insufficient_Weight">Insufficient Weight</option>
-                <option value="Normal_Weight">Normal Weight</option>
+                <option value="Underweight">Underweight</option>
+                <option value="Normal">Normal</option>
                 <option value="Overweight">Overweight</option>
-                <option value="Obesity">Obesity</option>
-                <option value="Severe_Obesity">Severe Obesity</option>
+                <option value="Obesitas">Obesitas</option>
             </select>
         </div>
 
-        <div class="mb-3">
+        {{-- <div class="mb-3">
             <label for="saran">Definisi</label>
             <textarea name="definisi" id="definisi" class="form-control" rows="4" required></textarea>
-        </div>
+        </div> --}}
 
         <div class="mb-3">
             <label for="saran">Saran Makanan</label>
