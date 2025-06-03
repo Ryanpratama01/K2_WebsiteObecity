@@ -98,10 +98,10 @@
             const donutChart = new Chart(donutCtx, {
                 type: 'doughnut',
                 data: {
-                    labels: ['Insufficient_Weight', 'Normal_Weight', 'Overweight', 'Obesity', 'Severe_Obesity'],
+                    labels: ['Underweight', 'Normal', 'Overweight', 'Obesitas'],
                     datasets: [{
                         data: data,
-                        backgroundColor: ['#424242', '#4CAF50', '#80CBC4', '#FF9800', '#E53935'],
+                        backgroundColor: ['#424242', '#4CAF50', '#80CBC4', '#FF9800'],
                         borderWidth: 0,
                         cutout: '70%'
                     }]

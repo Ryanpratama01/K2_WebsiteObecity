@@ -71,7 +71,7 @@
         </div>
 
         <div class="d-flex justify-content-between">
-            <a href="{{ route('users.store') }}" class="btn btn-primary">Go Back</a>
+            <a href="{{ route('users') }}" class="btn btn-primary">Go Back</a>
             <button type="submit" class="btn btn-success">Simpan</button>
         </div>
         @if ($errors->any())

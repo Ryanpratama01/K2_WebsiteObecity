@@ -15,11 +15,10 @@ class PieController extends Controller
             ->get();
 
         $kategori_list = [
-            'Insufficient_Weight',
-            'Normal_Weight',
+            'Underweight',
+            'Normal',
             'Overweight',
-            'Obesity',
-            'Severe_Obesity'
+            'Obesitas',
         ];
 
         $data = array_fill_keys($kategori_list, 0);

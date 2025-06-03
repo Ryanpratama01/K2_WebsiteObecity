@@ -8,7 +8,6 @@ class Recommend extends Model
     public $timestamps = false; // karena tabel tidak punya created_at/updated_at
     protected $fillable = [
         'kategori_bmi',
-        'definisi',
         'saran_makanan',
         'saran_aktivitas',
         'saran_lain',
