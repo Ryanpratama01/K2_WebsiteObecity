@@ -187,7 +187,7 @@
                 </div>
             @endif
             
-            <form action="{{ route('password.email') }}" method="POST">
+            <form action="{{ route('password.api') }}" method="POST">
                 @csrf
                 
                 @if ($errors->any())

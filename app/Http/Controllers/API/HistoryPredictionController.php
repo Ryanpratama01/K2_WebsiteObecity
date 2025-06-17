@@ -37,9 +37,9 @@ class HistoryPredictionController extends Controller
     );
 
 
-    if (HistoryDetail::where('month', Carbon::now()->format('m'))
-                      ->where('years', Carbon::now()->format('Y'))->count() == 1) {
-      return response()->json(['message' => 'error, data bulanan telah ada'], 400);
+    if (HistoryDetail::where('month', Carbon::now()->format('m'))->where('user_id', $user->id_User)
+                      ->where('year', Carbon::now()->format('Y'))->count() == 1) {
+      return response()->json(['message' => 'error, data bulanan telah ada'+$user], 400);
     } else {
       HistoryPrediction::create($input);
 

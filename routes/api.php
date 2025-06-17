@@ -5,6 +5,8 @@ use App\Http\Controllers\API\ChartController;
 use App\Http\Controllers\API\HistoryDetailController;
 use App\Http\Controllers\API\HistoryPredictionController;
 use App\Http\Controllers\API\RekomendasiController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,7 +30,9 @@ Route::group([
 });
 Route::get('get_user', [AuthController::class, 'get_user']);
 Route::post("login", [AuthController::class, 'login']);
-
+Route::post('/forgot-password', [ForgotPasswordController::class, 'sendOtp'])->name('password.api');
+Route::post('/verify-otp', [ResetPasswordController::class, 'verifyOtp']);
+Route::post('/reset-password', [ResetPasswordController::class, 'resetPassword']);
 Route::post('/predict', function (Request $request) {
     // Hitung BMI sederhana
     $weight = $request->weight;

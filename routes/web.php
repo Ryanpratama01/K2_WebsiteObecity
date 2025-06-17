@@ -10,6 +10,7 @@ use App\Http\Controllers\PieController;
 use App\Http\Controllers\ChartController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use App\Http\Middleware\RoleMiddleware;
+use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('landing_page.index');
