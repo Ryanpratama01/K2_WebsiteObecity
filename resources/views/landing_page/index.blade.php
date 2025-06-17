@@ -587,7 +587,7 @@
               <i class="bi bi-geo-alt flex-shrink-0"></i>
               <div>
                 <h3>Address</h3>
-                <p>Jl. Mastrip, Krajan Timur, Sumbersari, Kab. Jember</p>
+                <p>JL.Tidar Kloncing, Karangrejo</p>
               </div>
             </div><!-- End Info Item -->
 
@@ -595,7 +595,7 @@
               <i class="bi bi-telephone flex-shrink-0"></i>
               <div>
                 <h3>Call Us</h3>
-                <p>+1 5589 55488 55</p>
+                <p>+62 895-2986-2954</p>
               </div>
             </div><!-- End Info Item -->
 
@@ -603,7 +603,7 @@
               <i class="bi bi-envelope flex-shrink-0"></i>
               <div>
                 <h3>Email Us</h3>
-                <p>info@example.com</p>
+                <p>obecitycheck2@gmail.com</p>
               </div>
             </div><!-- End Info Item -->
 
@@ -659,9 +659,9 @@
           </a>
           <p>Aplikasi Cek Obesitas adalah alat bantu digital yang dirancang untuk membantu pengguna mengetahui status berat badan mereka berdasarkan indeks massa tubuh (IMT/BMI).</p>
           <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-whatsapp"></i></a>
-            <a href=""><i class="bi bi-envelope"></i></a>
+            <a href="https://www.instagram.com/vickd_w?igsh=ZjVtajUyM3dvcHZl" target="_blank"><i class="bi bi-instagram"></i></a>
+            <a href=" https://wa.me/089529862954" target="_blank"> <i class="bi bi-whatsapp"></i></a>
+            <a href="mailto:obecitycheck2@gmail.com" target="_blank"><i class="bi bi-envelope"></i></a>
           </div>
         </div>
 
@@ -677,11 +677,11 @@
 
         <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
           <h4>Contact Us</h4>
-          <p>Jl. Mastrip</p>
-          <p>Krajan Timur, Sumbersari</p>
+          <p>JL.Tidar Kloncing, Karangrejo</p>
+          <p> Kloncing, Karangrejo, Kec. Sumbersari, </p>
           <p>Kabupaten Jember</p>
-          <p class="mt-4"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-          <p><strong>Email:</strong> <span>info@example.com</span></p>
+          <p class="mt-4"><strong>Phone:</strong> <span>+62 895-2986-2954 </span></p>
+          <p><strong>Email: </strong> <a href="mailto:obecitycheck2@gmail.com" target="_blank">obecitycheck2@gmail.com</a></p>
         </div>
 
       </div>
